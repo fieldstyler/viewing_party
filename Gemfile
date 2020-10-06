@@ -23,6 +23,10 @@ gem 'json'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'rspec-rails'
 end
 
 group :development do
