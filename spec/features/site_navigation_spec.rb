@@ -7,7 +7,6 @@ RSpec.describe "Site Navigation", type: :feature do
       expect(page).to have_content("Welcome to Viewing Party!")
       expect(page).to have_button("Login")
       expect(page).to have_link("New to Viewing Party? Register Here")
-      save_and_open_page
     end
 
   end
