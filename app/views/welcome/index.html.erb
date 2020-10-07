@@ -1,0 +1,15 @@
+<h1>Welcome to Viewing Party!</h1>
+<h4>An application to set up your next movie watching party.</h4>
+
+<%= form_tag '/login', method: :post do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <br>
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+  <br>
+  <%= submit_tag 'Login' %>
+<% end %>
+<ul>
+  <li><%= link_to "New to Viewing Party? Register Here", '/register' %></li>
+</ul>
