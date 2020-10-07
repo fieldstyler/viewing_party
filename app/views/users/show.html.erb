@@ -1,1 +1,23 @@
 <h1>Welcome <%= current_user.email %></h1>
+<br>
+
+<%= button_to "Discover Movies", '/discover', method: :get %>
+
+<h2>Friends</h2>
+
+<%= form_tag "/friendships" %>
+  <%= label_tag "Friend's email:" %>
+  <%= text_field_tag :email %>
+  <br>
+<%= submit_tag "Add Friend" %>
+
+<% if current_user.friends == [] %>
+  <h3>You have no friends!</h3>
+<% else %>
+  <h2>My friends:</h2>
+  <% current_user.friends.each do |friend| %>
+    <ul>
+      <li><h3><%= friend.email %></h3></li>
+    </ul>
+  <% end %>
+<% end %>
