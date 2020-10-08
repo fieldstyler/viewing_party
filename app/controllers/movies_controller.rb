@@ -1,14 +1,22 @@
 class MoviesController < ApplicationController
 
   def index
-
-    conn = Faraday.new(url: "https://api.themoviedb.org/3/discover/movie?api_key=371b8a717e3be7bf5d224b713e72fae7&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1-2") do |faraday|
-      faraday.headers["MOVIEDB-API-Key"] = ENV['MOVIE_API_Key']
+    response = conn.get("/3/movie/top_rated") do |faraday|
+      faraday.params["api_key"] = ENV['MOVIE_API_Key']
+      faraday.params["sort_by"] = 'popularity.desc'
+      faraday.params["page"] = '2'
     end
-    require "pry"; binding.pry
-    response = conn.get("/congress/v1/members/house/#{state}/current.json")
+    j = JSON.parse(response.body, symbolize_names: true)
 
-    redirect_to '/movies'
+    require "pry"; binding.pry
+
+    # redirect_to '/movies'
+  end
+
+  private
+
+  def conn
+    Faraday.new(url: "https://api.themoviedb.org")
   end
 
 end
