@@ -4,6 +4,9 @@ class User < ApplicationRecord
   validates_presence_of :password, require: true
   validates_presence_of :email
 
+  has_many :friendships
+  has_many :friends, through: :friendships
+
   def unique_email?
     User.pluck(:email).include?(email)
   end
