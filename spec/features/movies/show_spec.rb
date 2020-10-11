@@ -16,6 +16,14 @@ RSpec.describe "Movies Show page", type: :feature do
       click_on "Discover Top 40 Movies"
       click_on "Gabriel's Inferno"
       expect(page).to have_content("Gabriel's Inferno")
+      expect(page).to have_content("Vote average: 8.9")
+      expect(page).to have_content("Genre: Romance")
+      expect(page).to have_content("Runtime: 122")
+      expect(page).to have_content("Overview: An intriguing and sinful exploration of seduction, forbidden love, and redemption, Gabriel's Inferno is a captivating and wildly passionate tale of one man's escape from his own personal hell as he tries to earn the impossible--forgiveness and love.")
+      expect(page).to have_content("Movie Cast:")
+      expect(page).to have_content("Melanie Zanetti")
+      expect(page).to have_content("Giulio Berruti")
+
     end
 
   end
