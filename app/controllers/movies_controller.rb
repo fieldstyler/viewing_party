@@ -1,11 +1,18 @@
 class MoviesController < ApplicationController
 
-  def index
+  def top_40
     @movies = get_top_rated_movies(40)
   end
 
-  def show
+  def index
     @movies = get_movies_by_keyword_search(40)
+  end
+
+  def show
+    response = conn.get("3/movie/#{params[:id]}") do |faraday|
+      faraday.params["api_key"] = ENV['MOVIE_API_Key']
+    end 
+    @movie = JSON.parse(response.body, symbolize_names: true)
   end
 
   def get_top_rated_movies(movie_count_limit)
