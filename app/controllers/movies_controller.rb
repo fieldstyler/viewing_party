@@ -11,9 +11,12 @@ class MoviesController < ApplicationController
   def show
     response = conn.get("3/movie/#{params[:id]}") do |faraday|
       faraday.params["api_key"] = ENV['MOVIE_API_Key']
-    end 
+    end
     @movie = JSON.parse(response.body, symbolize_names: true)
+    movie_cast
   end
+
+
 
   def get_top_rated_movies(movie_count_limit)
     page=1
@@ -50,8 +53,17 @@ class MoviesController < ApplicationController
     return results
   end
 
+  private
+
   def conn
     Faraday.new(url: "https://api.themoviedb.org")
+  end
+
+  def movie_cast
+    act_response = conn.get("3/movie/#{params[:id]}/credits") do |faraday|
+      faraday.params["api_key"] = ENV['MOVIE_API_Key']
+    end
+    @crew = JSON.parse(act_response.body, symbolize_names: true)
   end
 
 end
