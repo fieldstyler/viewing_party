@@ -1,10 +1,1 @@
-<%= button_to "Discover Top 40 Movies", '/movies', method: :get %>
-
-<div class="movies-container">
-  <% @movies.each do |movie| %>
-    <ul>
-    <li><p>Movie: <%= link_to movie[:title], "/movies/#{movie[:id]}", class: "" %></p></li>
-    <p>Average Rating: <%= movie[:vote_average] %></p><br><br>
-    </ul>
-  <% end %>
-</div>
+<h1><%= @movie[:title] %></h1>
