@@ -13,7 +13,9 @@ Sick of watching movies all by yourself? Look no further! Viewing party is an ap
 
 ## Learning Goals
 
- - 
+ - How to consume APIs and utilize their functionality in multiple ways within the project
+ - Solidify Rails concepts such as: MVC, RSpec testing, and ActiveRecord
+ - Explore and implement: Facades, Webmock, VCRs, Faraday, JSON, and Declarative Programming
 
 ## Production Link
 
@@ -21,19 +23,14 @@ Sick of watching movies all by yourself? Look no further! Viewing party is an ap
 
 ## Schema Screenshot / Application
 
+ - Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+
 ## Local Setup
 
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
 3. Setup the database: `rails db:create`
 
-## Statistics
+## Versions
    ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)    ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 
-## Versions
-
-- Ruby 2.5.3
-
-- Rails 5.2.4.3
-
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
