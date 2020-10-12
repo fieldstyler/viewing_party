@@ -4,7 +4,7 @@ This is the base repo for the [viewing party project](https://backend.turing.io/
 
 ## Contributors
 
- - [Tyler Fields](https://github.com/fieldstyler) <br> - [LinkedIn](https://www.linkedin.com/in/tyler-fields-583084197/)
+ - [Tyler Fields](https://github.com/fieldstyler) - [LinkedIn](https://www.linkedin.com/in/tyler-fields-583084197/)
  - [Roberto Rodriguez](https://github.com/robertorodriguez12) - [LinkedIn](https://www.linkedin.com/in/roberto-j-rodriguez12/)
 
 ### About this Project
