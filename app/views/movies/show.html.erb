@@ -1,16 +1,15 @@
-<h1><%= @movie[:title] %></h1>
+<h1><%= @movie.title %></h1>
 <h2>Movie Details</h2>
-<h3>Vote average: <%= @movie[:vote_average] %></h3>
-<h3>Genre: <%= @movie[:genres][0][:name] %></h3>
-<h3>Runtime: <%= @movie[:runtime] %></h3>
-<h3>Overview: <%= @movie[:overview] %></h3>
-<h3>Movie Cast: <% @crew[:cast]. each do |crew| %></h3>
-<ul>
-  <h4>Actor Name: <%= crew[:name] %></h4>
-  <% if crew[:character] == "" %>
-    <h4>Character Name: UNK</h4>
-  <% else %>
-  <h4>Character Name: <%= crew[:character] %></h4>
+<h3>Vote average: <%= @movie.vote_average %></h3>
+<h3>Genre(s): <% @movie.genres.each do |genre| %></h3>
+  <ul>
+    <li> <%= genre[:name] %></li>
+  </ul>
   <% end %>
+<h3>Runtime: <%= @movie.runtime %> minutes</h3>
+<h3>Overview: <%= @movie.overview %></h3>
+<h3>Movie Cast: <% @crew.each do |crew| %></h3>
+<ul>
+  <li><%= crew.name %> is <%= crew.character %></li>
 </ul>
 <% end %>

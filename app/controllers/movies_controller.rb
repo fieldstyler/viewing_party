@@ -9,11 +9,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    response = conn.get("3/movie/#{params[:id]}") do |faraday|
-      faraday.params["api_key"] = ENV['MOVIE_API_Key']
-    end
-    @movie = JSON.parse(response.body, symbolize_names: true)
-    movie_cast
+    @movie = movie_details
+    @crew = movie_cast
   end
 
 
@@ -32,16 +29,16 @@ class MoviesController < ApplicationController
       end
       page += 1
     end
-    return results
+    results
   end
 
   def get_movies_by_keyword_search(movie_count_limit)
     page=1
     results = []
     until results.length >= movie_count_limit
-      response = conn.get("/3/search/movie") do |faraday|
-        faraday.params["api_key"] = ENV['MOVIE_API_Key']
-        faraday.params["query"] = params[:keyword]
+      response = conn.get('/3/search/movie') do |faraday|
+        faraday.params['api_key'] = ENV['MOVIE_API_Key']
+        faraday.params['query'] = params[:keyword]
         faraday.params['page'] = page
       end
       j = JSON.parse(response.body, symbolize_names: true)
@@ -50,7 +47,7 @@ class MoviesController < ApplicationController
       end
       page += 1
     end
-    return results
+    results
   end
 
   private
@@ -60,10 +57,31 @@ class MoviesController < ApplicationController
   end
 
   def movie_cast
+    cast = []
     act_response = conn.get("3/movie/#{params[:id]}/credits") do |faraday|
       faraday.params["api_key"] = ENV['MOVIE_API_Key']
     end
-    @crew = JSON.parse(act_response.body, symbolize_names: true)
+    response = JSON.parse(act_response.body, symbolize_names: true)
+    if response[:cast].count > 10
+      until cast.count == 10
+        response[:cast].each do |cast_data|
+          cast << Cast.new(cast_data)
+          break if cast.count == 10
+        end
+      end
+    else
+      response[:cast].each do |cast_data|
+        cast << Cast.new(cast_data)
+      end
+    end
+    cast
   end
 
+  def movie_details
+    response = conn.get("3/movie/#{params[:id]}") do |faraday|
+      faraday.params["api_key"] = ENV['MOVIE_API_Key']
+    end
+    movie = JSON.parse(response.body, symbolize_names: true)
+    Movie.new(movie)
+  end
 end
