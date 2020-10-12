@@ -13,7 +13,11 @@ Sick of watching movies all by yourself? Look no further! Viewing party is an ap
 
 ## Learning Goals
 
+ - 
+
 ## Production Link
+
+ - https://viewing-party-tr.herokuapp.com/
 
 ## Schema Screenshot / Application
 
@@ -24,7 +28,7 @@ Sick of watching movies all by yourself? Look no further! Viewing party is an ap
 3. Setup the database: `rails db:create`
 
 ## Statistics
-   ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)    ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+   ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)    ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) (https://img.shields.io/badge/Ruby-2.5.3-orange)
 
 ## Versions
 
