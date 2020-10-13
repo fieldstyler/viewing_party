@@ -9,7 +9,19 @@
 <h3>Runtime: <%= @movie.runtime %> minutes</h3>
 <h3>Overview: <%= @movie.overview %></h3>
 <h3>Movie Cast: <% @crew.each do |crew| %></h3>
-<ul>
-  <li><%= crew.name %> is <%= crew.character %></li>
-</ul>
+  <ul>
+    <li><%= crew.name %> is <%= crew.character %></li>
+  </ul>
+<% end %>
+<h3>Review(s): </h3>
+<% if @review_count > 0 %>
+<h3>Total Reviews: <%= @review_count %></h3><br>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li>Author: <%= review.author %></li><br>
+      <li><%= review.content %></li><br><br>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>There are no reviews for this movie</h3>
 <% end %>

@@ -12,7 +12,7 @@ RSpec.describe "Movies Show page", type: :feature do
       click_on "Discover Movies"
     end
 
-    xit "I can visit movies index page and click on a movie title link to see the movie details" do
+    it "I can visit movies index page and click on a movie title link to see the movie details" do
       click_on "Discover Top 40 Movies"
       click_on "Gabriel's Inferno"
       expect(page).to have_content("Gabriel's Inferno")
@@ -23,6 +23,7 @@ RSpec.describe "Movies Show page", type: :feature do
       expect(page).to have_content("Movie Cast:")
       expect(page).to have_content("Melanie Zanetti")
       expect(page).to have_content("Giulio Berruti")
+      expect(page).to have_content("There are no reviews for this movie")
     end
 
     it "can display multiple genres" do
@@ -31,6 +32,9 @@ RSpec.describe "Movies Show page", type: :feature do
       expect(page).to have_content("Comedy")
       expect(page).to have_content("Thriller")
       expect(page).to have_content("Drama")
+      expect(page).to have_content("Total Reviews: 12")
+      expect(page).to have_content("Sheldon Nylander")
+      expect(page).to have_content("The working class and down on their luck Kim family struggle to make ends mee")
     end
 
   end

@@ -11,9 +11,9 @@ class MoviesController < ApplicationController
   def show
     @movie = movie_details
     @crew = movie_cast
+    @review_count = movie_reviews_count
+    @reviews = movie_reviews
   end
-
-
 
   def get_top_rated_movies(movie_count_limit)
     page=1
@@ -83,5 +83,25 @@ class MoviesController < ApplicationController
     end
     movie = JSON.parse(response.body, symbolize_names: true)
     Movie.new(movie)
+  end
+
+  def movie_reviews_count
+    response = conn.get("3/movie/#{params[:id]}/reviews") do |faraday|
+      faraday.params["api_key"] = ENV['MOVIE_API_Key']
+    end
+    reviews = JSON.parse(response.body, symbolize_names: true)
+    reviews[:results].count
+  end
+
+  def movie_reviews
+    reviews = []
+    act_response = conn.get("3/movie/#{params[:id]}/reviews") do |faraday|
+      faraday.params["api_key"] = ENV['MOVIE_API_Key']
+    end
+    response = JSON.parse(act_response.body, symbolize_names: true)
+    response[:results].each do |review_data|
+      reviews << Review.new(review_data)
+    end
+    reviews
   end
 end
