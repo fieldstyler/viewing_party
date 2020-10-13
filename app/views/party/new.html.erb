@@ -1,14 +1,9 @@
-<%= form_tag '' %>
-  <%= label_tag :title %>
-  <%= text_field_tag :title, @movie.name %>
+<%= form_tag '/dashboard' do %>
+# =>  Creating viewing party for @movie.title
   <%= label_tag :duration %>
-  <%= text_field_tag :duration, @movie.runtime %>
+  <%= text_field_tag :duration%>
   <%= label_tag :weekday %>
   <%= text_field_tag :weekday %>
   <%= label_tag :starttime %>
   <%= text_field_tag :starttime %>
-<h3>Include</h3><br>
-  <% @user.friends.each do |friend| %>
-    <%= check_box_tag friend.name %>
-  <% end %>
 <% end %>
