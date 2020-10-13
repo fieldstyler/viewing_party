@@ -1,4 +1,4 @@
-class Cast
+class Actor
   attr_reader :name, :character
   def initialize(data)
     @name = data[:name]

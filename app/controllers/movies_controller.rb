@@ -65,13 +65,13 @@ class MoviesController < ApplicationController
     if response[:cast].count > 10
       until cast.count == 10
         response[:cast].each do |cast_data|
-          cast << Cast.new(cast_data)
+          cast << Actor.new(cast_data)
           break if cast.count == 10
         end
       end
     else
       response[:cast].each do |cast_data|
-        cast << Cast.new(cast_data)
+        cast << Actor.new(cast_data)
       end
     end
     cast
