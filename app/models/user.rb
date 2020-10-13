@@ -3,6 +3,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :password, require: true, presence: true
 
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 end
