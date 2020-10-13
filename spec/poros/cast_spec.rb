@@ -12,5 +12,4 @@ RSpec.describe Cast do
     expect(cast.name).to eq("John Smith")
     expect(cast.character).to eq("John Smith")
   end
-
 end
