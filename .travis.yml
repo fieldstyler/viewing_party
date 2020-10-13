@@ -8,6 +8,11 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: 371b8a717e3be7bf5d224b713e72fae7
-  app:
+  api_key:
+    secure: ZS1KaMxr0uK890Br3FDBGFZGUIGpQRYc10NynDGYe1C3Q7asMQ8FZcGdfWMN/ozFYdJfJcF7Z9J8kIbf84h0i+ODMX3nX3MSwh5CXgqfbLW5qEI+Va3qTG8Em7bZ0MX0q2QRH0WZoPGxjUaK3gYDdoFbl3eQ+KsNpPh1snESSjfoayXfASNliT7dDK/nQ66CLougxEBq+dzT8UJQawv4dpQuRO5dKRtCOEv6F/iHN5JG0G0UHDJ8v7ddjXPjWQxJcJqwZRgMEJ8Jaslsn8+XCR4I8bM3qrgvM8q5Nh+kRkuxQ5XseCwyG07scbAdP/CuYmvbwqG/bmNL0/jW0vr6Mb519HkASQ5SDu5d8QHWwUZx9oo6UFskn9tlxETjyp0Q8YbUcIV5Y3HmG0Lqs5fZxDCPQW2adrsyYVZsay80c+v7QrtUqYaq2I+QwA6ULyYiadmod/UqeCDiqwuQU0ra50hHjXydskrTWARcjxYna6YAkDRz3BQ1KkTZa66DHksQUlTd4ZUYOjWUBUw4DXnUMsSjI1bTfAgnPaur9vknkgRgFbs8BCTAOJDbv+6Bu3mSUvl4Rz42xr7E5Pt3i4rI11aG3KvQMN8xuXuE5mabm4ZqtikFFXzcBeVW7yyhTQZBdGLtjfbz/YCuTnmjNvXiZYKoPfXk3IDb2PuGYuSnBOo=
+  app: viewing-party-tr
+  on:
+    repo: fieldstyler/viewing_party
+    branch: main
+  skip_cleanup: 'true'
   run: rails db:migrate

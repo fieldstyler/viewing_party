@@ -37,5 +37,13 @@ RSpec.describe "Movies Show page", type: :feature do
       expect(page).to have_content("The working class and down on their luck Kim family struggle to make ends mee")
     end
 
+    it 'has create viewing party button and when you click the button, it takes us to viewing party form' do
+      click_on "Discover Top 40 Movies"
+      click_on "Parasite"
+      expect(page).to have_button('Create Viewing Party')
+      click_on 'Create Viewing Party'
+      expect(current_path).to eq('/viewing-party/new')
+    end
+
   end
 end
