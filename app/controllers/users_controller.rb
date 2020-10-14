@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @parties = @user.find_viewing_parties
+    @movies = @user.find_movies
     render file: '/public/404' if !current_user
   end
 
