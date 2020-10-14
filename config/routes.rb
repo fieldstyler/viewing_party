@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get '/movies/:id', to: 'movies#show'
 
   get '/viewing-party/new', to: 'party#new'
-  # post '/dashboard', to: 'party#create'
+  post '/viewing-party', to: 'party#create'
 
   post '/friendships', to: 'friendships#create'
-  # get '/login', to: 'sessions#new'
+  get '/login', to: 'sessions#new'
   post '/dashboard', to: 'sessions#create'
 end
