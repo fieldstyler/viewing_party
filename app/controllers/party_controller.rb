@@ -16,7 +16,7 @@ class PartyController < ApplicationController
       flash[:success] = 'Viewing Party Created!'
       redirect_to '/dashboard'
     else
-      flash[:alert] = 'You are missing fields!'
+      flash[:alert] = 'Your fields are missing/incorrect!'
       redirect_to request.referer
     end
   end

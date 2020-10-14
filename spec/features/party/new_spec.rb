@@ -69,7 +69,7 @@ RSpec.describe "Viewing Party", type: :feature do
 
       click_on 'Create Party'
       expect(current_path).to eq('/viewing-party/new')
-      expect(page).to have_content('You are missing fields!')
+      expect(page).to have_content('Your fields are missing/incorrect!')
     end
 
   end
