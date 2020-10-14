@@ -66,6 +66,5 @@ RSpec.describe "Dashboard Page" do
     expect(page).to have_content('3:00 PM')
     expect(page).to have_content('host')
     expect(page).to have_content('invited')
-    save_and_open_page
   end
 end
