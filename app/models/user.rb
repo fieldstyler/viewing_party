@@ -18,6 +18,6 @@ class User < ApplicationRecord
     all_viewing_parties.each do |viewing_party|
       movies << Party.find(viewing_party[:party_id])
     end
-    return movies
+    movies
   end
 end

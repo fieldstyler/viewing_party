@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = current_user
     @parties = @user.find_viewing_parties
     @movies = @user.find_movies
-    render file: '/public/404' if !current_user
+    render file: '/public/404' unless current_user
   end
 
   private
