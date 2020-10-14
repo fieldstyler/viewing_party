@@ -42,5 +42,35 @@ RSpec.describe "Viewing Party", type: :feature do
       expect(current_path).to eq('/dashboard')
     end
 
+    it "should be able to create a new viewing party with no friends" do
+      click_on "Discover Top 40 Movies"
+      click_on "Gabriel's Inferno"
+      click_on 'Create Viewing Party'
+      expect(page).to have_field(:party_date)
+      expect(page).to have_field(:start_time)
+      expect(page).to have_field(:duration)
+
+      fill_in :duration, with: 100
+      fill_in :party_date, with: '10/14/2020'
+      fill_in :start_time, with: '01:42 PM'
+
+      click_on 'Create Party'
+
+      expect(current_path).to eq('/dashboard')
+    end
+
+    it "should not be able to create a new party with missing fields" do
+      click_on "Discover Top 40 Movies"
+      click_on "Gabriel's Inferno"
+      click_on 'Create Viewing Party'
+      expect(page).to have_field(:party_date)
+      expect(page).to have_field(:start_time)
+      expect(page).to have_field(:duration)
+
+      click_on 'Create Party'
+      expect(current_path).to eq('/viewing-party/new')
+      expect(page).to have_content('You are missing fields!')
+    end
+
   end
 end
