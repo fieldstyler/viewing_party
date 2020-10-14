@@ -5,6 +5,14 @@ RSpec.describe "Dashboard Page" do
     @user = User.create(email: "email@email.com", password: "password")
     @user2 = User.create(email: "email2@email.com", password: "password")
     @user3 = User.create(email: "email3@email.com", password: "password")
+    @party = Party.create(movie: "Dante's Inferno", duration: '120', party_date: '12-03-2020', start_time: '12:00 PM')
+    @party2 = Party.create(movie: "Dante's Inferna Pt. 2", duration: '120', party_date: '12-05-2020', start_time: '3:00 PM')
+    PartyViewer.create(party_id: @party.id, user_id: @user.id, status: 'host')
+    PartyViewer.create(party_id: @party.id, user_id: @user2.id, status: 'invited')
+    PartyViewer.create(party_id: @party.id, user_id: @user3.id, status: 'invited')
+    PartyViewer.create(party_id: @party2.id, user_id: @user2.id, status: 'host')
+    PartyViewer.create(party_id: @party2.id, user_id: @user.id, status: 'invited')
+    PartyViewer.create(party_id: @party2.id, user_id: @user3.id, status: 'invited')
     visit '/'
 
     fill_in :email, with: @user.email
@@ -49,5 +57,15 @@ RSpec.describe "Dashboard Page" do
     click_on "Add Friend"
     expect(page).to_not have_content("doesntexist@email.com")
     expect(page).to have_content("User does not exist")
+  end
+
+  it "can show all the viewing parties I am hosting or that I am attending" do
+    expect(page).to have_content("Dante's Inferno")
+    expect(page).to have_content('12-03-2020')
+    expect(page).to have_content("Dante's Inferna Pt. 2")
+    expect(page).to have_content('3:00 PM')
+    expect(page).to have_content('host')
+    expect(page).to have_content('invited')
+    save_and_open_page
   end
 end

@@ -20,3 +20,20 @@
     </ul>
   <% end %>
 <% end %>
+
+<h2>Viewing Parties: </h2>
+<section>
+<% @movies.each do |film| %>
+  <% @parties.each do |party| %>
+    <% if film.id == party.party_id %>
+    <ul>
+      <h1>Movie: <%= film.movie %></h1>
+      <li>Party Length: <%= film.duration %></li>
+      <li>Date: <%= film.party_date %></li>
+      <li>Start Time: <%= film.start_time %></li>
+      <li>Status: <%= party.status %></li>
+    </ul>
+    <% end %>
+  <% end %>
+<% end %>
+</section>
