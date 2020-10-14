@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
+  has_many :party_viewers, dependent: :destroy
+  has_many :parties, through: :party_viewers
 end
