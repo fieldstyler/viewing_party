@@ -8,5 +8,12 @@
   <%= date_field_tag :party_date %><br>
   <%= label_tag :start_time %><br>
   <%= time_field_tag :start_time %><br>
+  <h3>Friends to add to this party:</h3>
+  <% current_user.friends.each do |friend| %>
+    <section id="invite-friend-<%= friend.id %>">
+      <h3><%= check_box_tag 'friend_id[]', friend.id %> <%= friend.email %></h3>
+
+    </section>
+  <% end %>
   <%= submit_tag 'Create Party' %>
 <% end %>
