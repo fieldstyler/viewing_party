@@ -7,8 +7,14 @@
     <li> <%= genre[:name] %></li>
   </ul>
   <% end %>
-<h3>Runtime: <%= @movie.runtime %> minutes</h3>
-<h3>Overview: <%= @movie.overview %></h3>
+<h3>Runtime:</h3>
+<ul>
+  <li><%= @movie.runtime %> minutes</li>
+</ul>
+<h3>Overview:</h3>
+<ul>
+  <li><%= @movie.overview %></li>
+</ul>
 <h3>Movie Cast: <% @crew.each do |crew| %></h3>
   <ul>
     <li><%= crew.name %> is <%= crew.character %></li>
