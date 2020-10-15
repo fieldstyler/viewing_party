@@ -1,4 +1,6 @@
 class MovieService
+  RESULTS_PER_PAGE = 20
+
   def self.top_rated_movies(movie_count_limit)
     page = 1
     results = []
@@ -50,6 +52,7 @@ class MovieService
       j[:results].each do |movie|
         results << movie
       end
+      break if j[:results] < RESULTS_PER_PAGE
       page += 1
     end
     results

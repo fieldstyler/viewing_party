@@ -6,6 +6,6 @@ class Movie
     @genres       = attr[:genres]
     @runtime      = attr[:runtime]
     @overview     = attr[:overview]
-    @id = attr[:id]
+    @id           = attr[:id]
   end
 end
