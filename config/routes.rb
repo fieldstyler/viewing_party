@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   post '/registration', to: 'users#create'
   get '/dashboard', to: 'users#show'
   get '/discover', to: 'discover#index'
-  get '/movies', to: 'movies#index'
-  post '/movies', to: 'movies#show'
+  get '/movies', to: 'movies#top_40'
+  post '/movies', to: 'movies#index'
+  get '/movies/:id', to: 'movies#show'
+
+  get '/viewing-party/new', to: 'party#new'
+  post '/viewing-party', to: 'party#create'
 
   post '/friendships', to: 'friendships#create'
-  # get '/login', to: 'sessions#new'
+  get '/login', to: 'sessions#new'
   post '/dashboard', to: 'sessions#create'
 end

@@ -1,0 +1,19 @@
+
+<%= form_tag "/viewing-party", method: :post do %>
+  <h1><%= label_tag "Viewing party for '#{@movie.title}'" %></h1><br>
+  <%= hidden_field_tag :movie, @movie.title  %>
+  <%= label_tag 'Party duration in minutes(default time is movie runtime)'%> <br>
+  <%= text_field_tag :duration, @movie.runtime%> <br>
+  <%= label_tag :party_date %> <br>
+  <%= date_field_tag :party_date %><br>
+  <%= label_tag :start_time %><br>
+  <%= time_field_tag :start_time %><br>
+  <h3>Friends to add to this party:</h3>
+  <% current_user.friends.each do |friend| %>
+    <section id="invite-friend-<%= friend.id %>">
+      <h3><%= check_box_tag 'friend_id[]', friend.id %> <%= friend.email %></h3>
+
+    </section>
+  <% end %>
+  <%= submit_tag 'Create Party' %>
+<% end %>

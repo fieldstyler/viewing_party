@@ -32,6 +32,5 @@ RSpec.describe "Movies Page" do
     within(".movies-container") do
       expect(page).to have_css('ul', :count => 40)
     end
-    save_and_open_page
   end
 end

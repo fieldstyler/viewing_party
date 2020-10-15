@@ -1,13 +1,23 @@
 class User < ApplicationRecord
   has_secure_password
   validates :email, uniqueness: true, presence: true
-  validates_presence_of :password, require: true
-  validates_presence_of :email
+  validates_presence_of :password
 
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
+  has_many :party_viewers, dependent: :destroy
+  has_many :parties, through: :party_viewers
 
-  def unique_email?
-    User.pluck(:email).include?(email)
+  def find_viewing_parties
+    PartyViewer.where(user_id: self.id)
+  end
+
+  def find_movies
+    movies = []
+    all_viewing_parties = find_viewing_parties
+    all_viewing_parties.each do |viewing_party|
+      movies << Party.find(viewing_party[:party_id])
+    end
+    movies
   end
 end
